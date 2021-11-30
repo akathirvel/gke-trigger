@@ -13,9 +13,9 @@ resources:
 
 service:
   ports:
-#    - port: 8080
-#     targetPort: 8080
-#     protocol: TCP # default TCP
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP # default TCP
 
 ingress:
   paths:
