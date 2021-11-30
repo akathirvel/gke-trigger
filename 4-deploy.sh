@@ -4,7 +4,7 @@ source /workspace/devops_env
 export CLOUDSDK_COMPUTE_REGION=$2
 export CLOUDSDK_CONTAINER_CLUSTER=$3
 
-gcloud container clusters get-credentials --zone "$CLOUDSDK_COMPUTE_ZONE" "$CLOUDSDK_CONTAINER_CLUSTER"
+gcloud container clusters get-credentials --region "$CLOUDSDK_COMPUTE_REGION" "$CLOUDSDK_CONTAINER_CLUSTER"
 
 export VERIFY_CHECKSUM=false
 curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
