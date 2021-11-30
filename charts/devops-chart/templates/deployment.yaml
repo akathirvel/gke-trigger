@@ -1,0 +1,28 @@
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: {{ .Release.Name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  template:
+    metadata:
+      annotations:
+        rollme: {{ randAlphaNum 5 | quote }}
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Release.Name }}
+          image: {{ required "image.fullName not provided" .Values.image.fullName }}
+          imagePullPolicy: Always
+          env:
+            - name: ACTIVE_PROFILE
+              value: {{ required "activeProfile not provided" .Values.activeProfile }}
+          resources:
+            {{- include "limitsAndRequests" . | nindent 12 -}}
+

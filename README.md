@@ -1,2 +1,2 @@
-# gke-trigger
-GCP GKE Trigger function
+# gcptriggertest
+POC for gcp trigger function

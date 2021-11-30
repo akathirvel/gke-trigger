@@ -1,0 +1,26 @@
+{{ range .Values.ingress.paths }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ $.Release.Name }}--{{ regexReplaceAll "\\W+" .path "" }}
+  labels:
+    app: {{ $.Release.Name }}
+  annotations:
+    kubernetes.io/ingress.class: kong
+    {{ if .stripPath}}
+    konghq.com/strip-path: "true"
+    {{ end }}
+spec:
+  rules:
+    - http:
+        paths:
+          - path: {{ .path }}
+            pathType: {{ .pathType | default "Prefix" }}
+            backend:
+              service:
+                name: {{ .service.name | default $.Release.Name }}
+                port:
+                  number: {{ .service.port.number }}
+{{ end }}
+
+

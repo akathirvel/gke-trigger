@@ -1,0 +1,29 @@
+#### BEGIN MUST DEFINE ####
+#image:
+# fullname: ""
+#### END MUST DEFINE ####
+
+replicaCount: 1
+hpa:
+  minReplicas: 1
+  maxReplicas: 5
+
+resources:
+  size: S # XS, S, M, L, XL
+
+service:
+  ports:
+#    - port: 8080
+#     targetPort: 8080
+#     protocol: TCP # default TCP
+
+ingress:
+  paths:
+#    - path: "/"
+#      jwtValidate: true # default false
+#      stripPath: true  # default false
+#      service:
+#        name: "srv-name" # default $.Release.Name
+#        port:
+#          number: 8080
+
