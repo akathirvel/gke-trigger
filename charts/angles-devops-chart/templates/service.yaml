@@ -3,14 +3,17 @@ kind: Service
 metadata:
   name: {{ .Release.Name }}
 spec:
-  selector:
-    app: {{ .Release.Name }}
-    {{- if  .Values.service.type }}
+   {{- if  .Values.service.type }}
     type: {{ .Values.service.type }}
-    {{- end }}
+   {{- end }}
+  selector:
+    app: {{ .Release.Name }}   
 {{ range .Values.service.ports }}
   ports:
     - protocol: {{ .protocol | default "TCP" }}
       port: {{ .port }}
       targetPort: {{ .targetPort }}
+      {{- if .nodePort  }}
+      nodePort: {{ .nodePort }}
+     {{- end }}
 {{ end }}
