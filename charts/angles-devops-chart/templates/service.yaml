@@ -11,7 +11,9 @@ spec:
 {{ range .Values.service.ports }}
   ports:
     - protocol: {{ .protocol | default "TCP" }}
+    {{- if .port }}
       port: {{ .port }}
+      {{ end }}
       targetPort: {{ .targetPort }}
       {{- if .nodePort  }}
       nodePort: {{ .nodePort }}
