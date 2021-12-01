@@ -16,7 +16,7 @@ kind: Namespace
 metadata:
   name: $DEVOPS_ENV_NAMESPACE" | kubectl apply -f -
 
-helm upgrade --install --debug "$releaseName" /workspace/charts/devops-chart \
+helm upgrade --install --debug "$releaseName" /workspace/charts/angles-devops-chart \
   -f /workspace/charts/devops-chart/values.yaml \
   -f /workspace/src/devops/deploy/values.yaml \
   --set image.fullName="$DEVOPS_ENV_IMAGE_TO_DEPLOY" \
