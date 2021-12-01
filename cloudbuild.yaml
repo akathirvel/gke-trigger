@@ -6,7 +6,7 @@ steps:
       - ./0-checkout.sh
       - $_SRC_REPO_URL
       - $_BRANCH
-      - $$SSH_KEY
+      - "ANGLES-SSH-KEY"
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: 'bash'
     args:

@@ -1,0 +1,16 @@
+namespace: hello
+image:
+  fullName: world
+
+service:
+  ports:
+    - port: 8080
+      targetPort: 8080
+
+ingress:
+  paths:
+    - path: "/"
+      jwtValidate: false
+      service:
+        port:
+          number: 8080
