@@ -12,6 +12,7 @@ resources:
   size: S # XS, S, M, L, XL
 
 service:
+  type:
   ports:
 #    - port: 8080
 #      targetPort: 8080
