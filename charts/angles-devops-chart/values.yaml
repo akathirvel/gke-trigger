@@ -11,9 +11,9 @@ hpa:
 resources:
   size: S # XS, S, M, L, XL
 
-service:
-  type:
-  ports:
+#service:
+#  type:
+#  ports:
 #    - port: 8080
 #      targetPort: 8080
 #      protocol: TCP # default TCP
