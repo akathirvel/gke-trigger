@@ -13,7 +13,7 @@ spec:
     - protocol: {{ .protocol | default "TCP" }}
       port: {{ .port }}
       targetPort: {{ .targetPort }}
-      {{- if .nodePort  }}
-      nodePort: {{ .nodePort }}
-     {{- end }}
+#      {{- if .nodePort  }}
+#      nodePort: {{ .nodePort }}
+#     {{- end }}
 {{ end }}
